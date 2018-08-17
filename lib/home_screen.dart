@@ -13,13 +13,6 @@ class HomeScreen extends StatelessWidget{
       ),
       home: new Scaffold(
         body: new Container(
-            decoration: new BoxDecoration(
-              image: new DecorationImage(
-                image: new AssetImage('assets/images/loginscreen.jpg'),
-                colorFilter: ColorFilter.mode(Colors.tealAccent, BlendMode.colorBurn),
-                fit: BoxFit.cover,
-              ),
-            ),
             child: new Text("fvdfbgbgfbgfbb"),color: Colors.white,),
       ),
     );

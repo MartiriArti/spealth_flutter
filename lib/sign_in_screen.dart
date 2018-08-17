@@ -18,8 +18,9 @@ class SignInScreen extends StatelessWidget {
         body: new Container(
             decoration: new BoxDecoration(
               image: new DecorationImage(
-                image: new AssetImage('assets/images/loginscreen.jpg'),
-                colorFilter: ColorFilter.mode(Colors.tealAccent, BlendMode.colorBurn),
+                image: new AssetImage('assets/images/background.jpg'),
+                colorFilter:
+                    ColorFilter.mode(Colors.tealAccent, BlendMode.colorBurn),
                 fit: BoxFit.cover,
               ),
             ),
@@ -46,69 +47,39 @@ GoogleSignIn _googleSignIn = new GoogleSignIn(
 );
 
 class _SignInScreenState extends State<SignInScreenRegistr> {
-
   @override
   Widget build(BuildContext context) {
-    return Stack(
-        children: <Widget>[
-    new Align(
-      alignment: Alignment.topCenter,
-    child: Container(
-      padding: const EdgeInsets.symmetric(vertical: 60.0),
-      child: Text(
-      "Spealth",
-      textAlign: TextAlign.start,
-      style: const TextStyle(
-          fontSize: 94.0,
-          fontFamily: "Courgette",
-          color: Colors.white,
-          decoration: TextDecoration.none),
-    ),
-    )),
-    new Align(
-      alignment: Alignment.bottomCenter,
-        child: new Container(
-          padding: const EdgeInsets.symmetric(vertical: 40.0),
-        child: new Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              new Container(
-                child: new FloatingActionButton(
-                  backgroundColor: Colors.red,
-                  onPressed: (_handleSignIn),
-                  child: new Text('G+ ',
-                      style: TextStyle(fontSize: 20.0, color: Colors.white)),
-                ),
-              ),
-              new Padding(padding: new EdgeInsets.only(left: 40.0)),
-              new Container(
-                  child: new FloatingActionButton(
-                    backgroundColor: Colors.blueAccent,
-                  onPressed: (null),
-                  child: new Text('f',
-                  style: TextStyle(fontSize: 20.0, color: Colors.white)),
-                  ),
-              ),
-              new Padding(padding: new EdgeInsets.only(left: 40.0)),
-              new Container(
-                child: new FloatingActionButton(
-                  backgroundColor: Colors.lightBlueAccent,
-                  onPressed: (null),
-                  child: new Text('t',
-                      style: TextStyle(fontSize: 20.0, color: Colors.white)),
-                ),
-              ),
-              new Padding(padding: new EdgeInsets.only(left: 40.0)),
-              new Container(
-                child: new FloatingActionButton(
-                  backgroundColor: Colors.white,
-                  onPressed: (null),
-                  child: new Text('...',
-                      style: TextStyle(fontSize: 20.0, color: Colors.grey)),
-                ),
-              ),
-            ]),
-    ))]);
+    return Stack(children: <Widget>[
+      new Align(
+          alignment: Alignment.topCenter,
+          child: Container(
+            padding: const EdgeInsets.symmetric(vertical: 60.0),
+            child: Text(
+              "Spealth",
+              textAlign: TextAlign.start,
+              style: const TextStyle(
+                  fontSize: 95.0,
+                  fontFamily: "Courgette",
+                  color: Colors.white),
+            ),
+          )),
+      new Align(
+        alignment: Alignment.bottomLeft,
+        child: new IconButton(
+          iconSize: 105.0,
+          icon: new Image.asset('assets/icons/google.png'),
+          onPressed: (_handleSignIn),
+        ),
+      ),
+      new Align(
+        alignment: Alignment.bottomRight,
+        child: new IconButton(
+          iconSize: 105.0,
+          icon: new Image.asset('assets/icons/facebook.png'),
+          onPressed: (_handleSignIn),
+        ),
+      ),
+    ]);
   }
 
   Future<Null> _handleSignIn() async {
