@@ -18,9 +18,7 @@ class SignInScreen extends StatelessWidget {
         body: new Container(
             decoration: new BoxDecoration(
               image: new DecorationImage(
-                image: new AssetImage('assets/images/background.jpg'),
-                colorFilter:
-                    ColorFilter.mode(Colors.tealAccent, BlendMode.colorBurn),
+                image: new AssetImage('assets/images/background.png'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -59,7 +57,7 @@ class _SignInScreenState extends State<SignInScreenRegistr> {
               textAlign: TextAlign.start,
               style: const TextStyle(
                   fontSize: 95.0,
-                  fontFamily: "Courgette",
+                  fontFamily: "Palatino",
                   color: Colors.white),
             ),
           )),
