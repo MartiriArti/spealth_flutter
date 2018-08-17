@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter/material.dart';
+import 'package:spealth_flutter/home_screen.dart';
 
 class SignInScreen extends StatelessWidget {
   SignInScreen({Key key}) : super(key: key);
@@ -45,9 +46,26 @@ GoogleSignIn _googleSignIn = new GoogleSignIn(
 );
 
 class _SignInScreenState extends State<SignInScreenRegistr> {
+
   @override
   Widget build(BuildContext context) {
-    return  new Align(
+    return Stack(
+        children: <Widget>[
+    new Align(
+      alignment: Alignment.topCenter,
+    child: Container(
+      padding: const EdgeInsets.symmetric(vertical: 60.0),
+      child: Text(
+      "Spealth",
+      textAlign: TextAlign.start,
+      style: const TextStyle(
+          fontSize: 94.0,
+          fontFamily: "Courgette",
+          color: Colors.white,
+          decoration: TextDecoration.none),
+    ),
+    )),
+    new Align(
       alignment: Alignment.bottomCenter,
         child: new Container(
           padding: const EdgeInsets.symmetric(vertical: 40.0),
@@ -84,13 +102,13 @@ class _SignInScreenState extends State<SignInScreenRegistr> {
               new Container(
                 child: new FloatingActionButton(
                   backgroundColor: Colors.white,
-                  onPressed: (_handleSignOut),
+                  onPressed: (null),
                   child: new Text('...',
                       style: TextStyle(fontSize: 20.0, color: Colors.grey)),
                 ),
               ),
             ]),
-    ));
+    ))]);
   }
 
   Future<Null> _handleSignIn() async {
@@ -98,6 +116,8 @@ class _SignInScreenState extends State<SignInScreenRegistr> {
       await _googleSignIn.signIn();
       print('signed in ' + _googleSignIn.currentUser.displayName);
       _displayName = _googleSignIn.currentUser.displayName;
+      Navigator.push(context,
+          new MaterialPageRoute(builder: (context) => new HomeScreen()));
       setState(() {});
     } catch (error) {
       print(error);
