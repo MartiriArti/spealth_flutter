@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter/material.dart';
-import 'package:spealth_flutter/home_screen.dart';
+import 'package:spealth_flutter/layouts/home_screen.dart';
 
 class SignInScreen extends StatelessWidget {
   SignInScreen({Key key}) : super(key: key);
@@ -56,9 +56,7 @@ class _SignInScreenState extends State<SignInScreenRegistr> {
               "Spealth",
               textAlign: TextAlign.start,
               style: const TextStyle(
-                  fontSize: 95.0,
-                  fontFamily: "Palatino",
-                  color: Colors.white),
+                  fontSize: 95.0, fontFamily: "Palatino", color: Colors.white),
             ),
           )),
       new Align(
