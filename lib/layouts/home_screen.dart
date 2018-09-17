@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spealth_flutter/widgets/app_bar.dart';
 import 'package:spealth_flutter/widgets/bottom_bar.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -12,20 +13,15 @@ class HomeScreen extends StatelessWidget {
         primarySwatch: Colors.blueGrey,
       ),
       home: new Scaffold(
-        appBar: new AppBar(
-          title: new Text(
-            "Spealth",
-            textScaleFactor: 1.5,
-          ),
-        ),
-        body: new Container(
-          child: new Center(
+        body: new Column(children: <Widget>[
+          new MyAppBar("Spealth"),
+          new Center(
             child: new Text(
               "Home Screen",
               textScaleFactor: 2.0,
             ),
-          ),
-        ),
+          )
+        ]),
         bottomNavigationBar: new BottomBar(),
       ),
     );
