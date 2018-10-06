@@ -10,10 +10,6 @@ class SignInScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Spealth',
-      theme: new ThemeData(
-        primarySwatch: Colors.green,
-      ),
       home: new Scaffold(
         body: new Container(
             decoration: new BoxDecoration(

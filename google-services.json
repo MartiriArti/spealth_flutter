@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "16602374168",
+    "firebase_url": "https://spealthflutter.firebaseio.com",
+    "project_id": "spealthflutter",
+    "storage_bucket": "spealthflutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:16602374168:android:d1abaacff4db309d",
+        "android_client_info": {
+          "package_name": "tonydarko.spealthflutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "16602374168-vjo6cctjve8l3v1skbbhus79v23vni7e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "tonydarko.spealthflutter",
+            "certificate_hash": "b52a3765a79d6e9f9c40100478a51c1ce8b53d9b"
+          }
+        },
+        {
+          "client_id": "16602374168-tqbt74p9219q11vmj9bqtb5t0fvgdbii.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnVihkU053kIyYELX8M932Ro4n2K92jLQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "16602374168-tqbt74p9219q11vmj9bqtb5t0fvgdbii.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

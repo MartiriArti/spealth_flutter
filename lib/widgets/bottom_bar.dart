@@ -29,7 +29,6 @@ class BottomBarState extends State<BottomBar> {
   Widget build(BuildContext context) {
     return Container(
       height: 65.0,
-      //color: Colors.green,
       child: Card(
         margin: EdgeInsets.only(top: 2.0),
         shape: RoundedRectangleBorder(
