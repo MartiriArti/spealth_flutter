@@ -15,8 +15,6 @@ class HomeScreen extends StatelessWidget {
           children: <Widget>[
             new MyAppBar("Spealth"),
             new HomePageBody(),
-            new HomePageBody(),
-            new HomePageBody(),
           ],
       ),
         bottomNavigationBar: new BottomBar(),

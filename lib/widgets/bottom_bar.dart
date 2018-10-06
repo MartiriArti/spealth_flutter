@@ -16,11 +16,11 @@ class BottomBarState extends State<BottomBar> {
   void initState() {
     super.initState();
     actions = <Widget>[
-      BottomButton("assets/icons/foodapple.png", "Health", Colors.blueGrey,
+      BottomButton("assets/icons/foodapple.png", "Health", Colors.lightBlue,
           () => _bottomButtonTap()),
-      BottomButton("assets/icons/food.png", "Food", Colors.blueGrey,
+      BottomButton("assets/icons/food.png", "Food", Colors.lightBlue,
           () => _bottomButtonTap()),
-      BottomButton("assets/icons/settings.png", "Settings", Colors.blueGrey,
+      BottomButton("assets/icons/settings.png", "Settings", Colors.lightBlue,
           () => _bottomButtonTap())
     ];
   }
