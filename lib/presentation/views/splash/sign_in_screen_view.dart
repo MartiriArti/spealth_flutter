@@ -2,23 +2,24 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:http/http.dart' as http;
-import 'package:spealth_flutter/model/BaseScreenView.dart';
 import 'package:spealth_flutter/presentation/views/auth/facebook_sign_in.dart';
+import 'package:spealth_flutter/presentation/views/base/BaseScreenView.dart';
 import 'package:spealth_flutter/presentation/views/main/home_screen.dart';
 import 'package:spealth_flutter/presentation/views/splash/sign_in_screen.dart';
+import 'package:spealth_flutter/presentation/views/widgets/button.dart';
 
 class SignInScreenView extends BaseScreenView<SignInScreen>
     with SingleTickerProviderStateMixin {
   int _state = 0;
   var profile;
+  var typeOfLogin = false;
   bool loginStatus = false;
   AnimationController controller;
   Animation<double> animation;
   Tween tween = new Tween<double>(begin: 0.0, end: 150.0);
-  var typeOfLogin = false;
+
   GoogleSignIn _googleSignIn = GoogleSignIn(
     scopes: [
       'email',
@@ -64,69 +65,47 @@ class SignInScreenView extends BaseScreenView<SignInScreen>
   Widget setUpButtonChild() {
     switch (_state) {
       case 0:
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget>[
-            RaisedButton.icon(
-              color: Colors.white,
-              icon: SizedBox(
-                width: 50.0,
-                height: 50.0,
-                child: Padding(
-                  padding: EdgeInsets.only(top: 5.0, bottom: 5.0, right: 5.0),
-                  child: SvgPicture.asset(
-                    'assets/icons/google_icon.svg',
-                  ),
+        return Padding(
+          padding: const EdgeInsets.only(right: 20.0, left: 20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              MaterialButton(
+                color: Colors.white,
+                child: button(
+                  'Sign in with Google',
+                  'assets/icons/google_icon.svg',
                 ),
+                onPressed: () {
+                  setState(() {
+                    if (_state == 0) {
+                      animateButton();
+                    }
+                  });
+                },
               ),
-              label: Text(
-                '  Login with Google  ',
-                style: TextStyle(
-                  fontSize: 22.0,
-                  color: Colors.black,
+              new Padding(
+                padding: EdgeInsets.all(10.0),
+              ),
+              MaterialButton(
+                color: Color.fromRGBO(58, 89, 152, 1.0),
+                child: button(
+                  'Sign in with Facebook',
+                  'assets/icons/facebook_icon.svg',
+                  Colors.white,
                 ),
+                onPressed: () {
+                  setState(() {
+                    if (_state == 0) {
+                      animateButton();
+                      typeOfLogin = true;
+                    }
+                  });
+                },
               ),
-              onPressed: () {
-                setState(() {
-                  if (_state == 0) {
-                    animateButton();
-                  }
-                });
-              },
-            ),
-            Padding(
-              padding: EdgeInsets.all(5.0),
-            ),
-            RaisedButton.icon(
-              color: Colors.indigo,
-              icon: SizedBox(
-                width: 50.0,
-                height: 50.0,
-                child: Padding(
-                  padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
-                  child: SvgPicture.asset(
-                    'assets/icons/facebook_icon.svg',
-                  ),
-                ),
-              ),
-              label: Text(
-                'Login with Facebook',
-                style: TextStyle(
-                  fontSize: 22.0,
-                  color: Colors.white,
-                ),
-              ),
-              onPressed: () {
-                setState(() {
-                  if (_state == 0) {
-                    animateButton();
-                    typeOfLogin = true;
-                  }
-                });
-              },
-            ),
-          ],
+            ],
+          ),
         );
         break;
       case 1:
@@ -158,18 +137,20 @@ class SignInScreenView extends BaseScreenView<SignInScreen>
       child: Stack(
         children: <Widget>[
           Align(
-              alignment: Alignment.topCenter,
-              child: Container(
-                padding: const EdgeInsets.symmetric(vertical: 60.0),
-                child: Text(
-                  "Spealth",
-                  textAlign: TextAlign.start,
-                  style: const TextStyle(
-                      fontSize: 95.0,
-                      fontFamily: "Palatino",
-                      color: Colors.white),
-                ),
-              )),
+            alignment: Alignment.topCenter,
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 60.0),
+              child: Text(
+                "Spealth",
+                textAlign: TextAlign.start,
+                style: const TextStyle(
+                    decoration: TextDecoration.none,
+                    fontSize: 85.0,
+                    fontFamily: "Palatino",
+                    color: Colors.white),
+              ),
+            ),
+          ),
           Align(alignment: Alignment.bottomCenter, child: setUpButtonChild()),
         ],
       ),
