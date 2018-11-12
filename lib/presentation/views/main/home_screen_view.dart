@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:spealth_flutter/presentation/views/auth/facebook_sign_in.dart';
 import 'package:spealth_flutter/presentation/views/base/BaseScreenView.dart';
+import 'package:spealth_flutter/presentation/views/health/heath_screen.dart';
 import 'package:spealth_flutter/presentation/views/main/home_screen.dart';
+import 'package:spealth_flutter/presentation/views/settings/settings_screen.dart';
 import 'package:spealth_flutter/presentation/views/splash/sign_in_screen.dart';
+import 'package:spealth_flutter/presentation/views/sport/sport_screen.dart';
 
 class HomeScreenView extends BaseScreenView<HomeScreen> {
   // var profileData;
@@ -41,15 +44,9 @@ class HomeScreenView extends BaseScreenView<HomeScreen> {
           child: new Scaffold(
             body: TabBarView(
               children: [
-                new Container(
-                  color: Colors.yellow,
-                ),
-                new Container(
-                  color: Colors.orange,
-                ),
-                new Container(
-                  color: Colors.lightGreen,
-                ),
+                SportScreen(),
+                HealthScreen(),
+                SettingsScreen(),
               ],
             ),
             appBar: AppBar(
@@ -90,7 +87,7 @@ class HomeScreenView extends BaseScreenView<HomeScreen> {
   _dialogResult(select) {
     if (select) {
       FacebookSigInService().signOut();
-      navigateEffect(SignInScreen());
+      navigateTo(context, SignInScreen());
     } else {
       Navigator.of(context).pop(select);
     }

@@ -7,8 +7,8 @@ import 'package:http/http.dart' as http;
 import 'package:spealth_flutter/presentation/views/auth/facebook_sign_in.dart';
 import 'package:spealth_flutter/presentation/views/base/BaseScreenView.dart';
 import 'package:spealth_flutter/presentation/views/main/home_screen.dart';
+import 'package:spealth_flutter/presentation/views/splash/button.dart';
 import 'package:spealth_flutter/presentation/views/splash/sign_in_screen.dart';
-import 'package:spealth_flutter/presentation/views/widgets/button.dart';
 
 class SignInScreenView extends BaseScreenView<SignInScreen>
     with SingleTickerProviderStateMixin {

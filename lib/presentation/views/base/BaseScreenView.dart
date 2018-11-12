@@ -29,19 +29,19 @@ class BaseScreenView<T extends StatefulWidget> extends State<T> {
     );
   }
 
-  Future navigateEffect(Widget widget) {
-    return Navigator.push(
-        context,
-        PageRouteBuilder(
-            opaque: false,
-            pageBuilder: (BuildContext context, _, __) => widget,
-            transitionsBuilder:
-                (___, Animation<double> animation, ____, Widget child) {
-              print(animation);
-              return FadeTransition(
-                opacity: animation,
-                child: ScaleTransition(scale: animation, child: child),
-              );
-            }));
-  }
+//  Future navigateEffect(Widget widget) {
+//    return Navigator.push(
+//        context,
+//        PageRouteBuilder(
+//            opaque: false,
+//            pageBuilder: (BuildContext context, _, __) => widget,
+//            transitionsBuilder:
+//                (___, Animation<double> animation, ____, Widget child) {
+//              print(animation);
+//              return FadeTransition(
+//                opacity: animation,
+//                child: ScaleTransition(scale: animation, child: child),
+//              );
+//            }));
+//  }
 }
