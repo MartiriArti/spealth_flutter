@@ -4,41 +4,71 @@ import 'package:spealth_flutter/presentation/views/base/BaseScreenView.dart';
 import 'package:spealth_flutter/presentation/views/health/heath_screen.dart';
 
 class HealthScreenView extends BaseScreenView<HealthScreen> {
-  final numItems = 20;
   final _biggerFont = const TextStyle(fontSize: 18.0);
 
-  Widget buildListContent(int idx) {
+  List<Card> listImage;
+
+  @override
+  initState() {
+    super.initState();
+    listImage = [
+      Card(
+          child: Image.asset(
+        'assets/images/1.png',
+      )),
+      Card(
+          child: Image.asset(
+        'assets/images/2.png',
+      )),
+      Card(
+          child: Image.asset(
+        'assets/images/3.png',
+      )),
+      Card(
+          child: Image.asset(
+        'assets/images/4.png',
+      )),
+      Card(
+          child: Image.asset(
+        'assets/images/5.png',
+      )),
+      Card(
+          child: Image.asset(
+        'assets/images/6.png',
+      )),
+      Card(
+          child: Image.asset(
+        'assets/images/7.png',
+      )),
+      Card(
+          child: Image.asset(
+        'assets/images/8.png',
+      )),
+      Card(
+          child: Image.asset(
+        'assets/images/9.png',
+      )),
+    ];
+  }
+
+  Widget buildListContent(Card image) {
     return GestureDetector(
-      child: ListTile(
-        onTap: () {
-          showSnackBar(context, "Tap");
-        },
-        leading: CircleAvatar(
-          child: Text('$idx'),
-        ),
-        title: Text(
-          'Item $idx',
-          style: _biggerFont,
-        ),
-        trailing: Icon(Icons.dashboard),
-      ),
+      onTap: () {
+        showSnackBar(context, "Tap");
+      },
+      child: Padding(padding: const EdgeInsets.only(bottom: 2.0), child: image),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.only(left: 8.0, right: 8.0, top: 8.0),
-        child: ListView.builder(
-          itemCount: numItems * 2,
-          padding: const EdgeInsets.all(16.0),
-          itemBuilder: (BuildContext context, int i) {
-            if (i.isOdd) return Divider();
-            final index = i ~/ 2 + 1;
-            return buildListContent(index);
-          },
-        ),
+      backgroundColor: Colors.grey[300],
+      body: ListView.builder(
+        itemCount: listImage.length,
+        //padding: const EdgeInsets.all(16.0),
+        itemBuilder: (BuildContext context, int i) =>
+            buildListContent(listImage[i]),
       ),
     );
   }
